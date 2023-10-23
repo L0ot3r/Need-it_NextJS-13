@@ -1,20 +1,16 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { Input } from './shadcn/ui/input';
+import { Input } from '../shadcn/ui/input';
 import { currentUser } from '@clerk/nextjs';
 import AcountNav from './AcountNav';
+import ButtonMenu from './ButtonMenu';
 
 const Navbar = async () => {
 	const user = await currentUser();
 	if (!user) return null;
 
 	return (
-		<nav className='flex items-center gap-7 px-4 justify-between'>
-			<div className='flex flex-col w-[40px] h-full gap-1 md:hidden'>
-				<div className='bg-black rounded-full w-full h-[5px]'></div>
-				<div className='bg-black rounded-full w-full h-[5px]'></div>
-				<div className='bg-black rounded-full w-full h-[5px]'></div>
-			</div>
+		<nav className='flex items-center gap-7 sm:px-4 justify-between'>
 			<div>
 				<Link href={'/'}>
 					<h2 className='text-3xl font-bold'>
@@ -35,7 +31,7 @@ const Navbar = async () => {
 					<Link href={'/shop/add-product'}>Ajouter un article</Link>
 				</li>
 			</ul>
-			<div className='relative flex-1 hidden md:inline-flex'>
+			<div className='relative flex-1 hidden sm:inline-flex'>
 				<Image
 					src='/assets/icons/search-gray.svg'
 					width={20}
@@ -49,7 +45,10 @@ const Navbar = async () => {
 					className='pl-10 rounded-full text-black'
 				/>
 			</div>
-			<AcountNav userId={user.id} />
+			<ButtonMenu />
+			<div className='hidden md:inline'>
+				<AcountNav userId={user.id} />
+			</div>
 		</nav>
 	);
 };

@@ -86,3 +86,9 @@
 		@apply cursor-pointer border-none bg-transparent outline-none file:text-blue-500 !important;
 	}
 }
+
+
+/* CLerk config */
+.cl-internal-b3fm6y {
+	display: none;
+}

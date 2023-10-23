@@ -85,8 +85,9 @@ const EditAccount = ({ user }: ProfileProps) => {
 		if (pathname === 'profile/edit') {
 			router.back();
 		} else {
-			router.push('/');
+			router.push(`/`);
 		}
+		router.push(`/profile/${user!.id}`);
 	};
 
 	return (

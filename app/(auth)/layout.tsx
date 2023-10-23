@@ -3,9 +3,11 @@ import type { Metadata } from 'next';
 
 import { ClerkProvider } from '@clerk/nextjs';
 import { dark } from '@clerk/themes';
+import { frFR } from '@clerk/localizations'
 
 import { Tenor_Sans } from 'next/font/google';
-import Navbar from '@/components/Navbar';
+import Navbar from '@/components/navigation/Navbar';
+import HeaderBar from '@/components/navigation/HeaderBar';
 
 const tenorSans = Tenor_Sans({
 	subsets: ['latin'],
@@ -24,14 +26,13 @@ export default function AuthLayout({
 }) {
 	return (
 		<ClerkProvider
+			localization={frFR}
 			appearance={{
 				baseTheme: dark,
 			}}>
 			<html lang='fr'>
 				<body className={`${tenorSans.className} bg-gray-950`}>
-					<header className='sticky top-0 w-full z-20 bg-gray-800 text-white px-6 py-3 drop-shadow-md'>
-						<Navbar />
-					</header>
+					<HeaderBar />
 					<div className='w-full h-full flex justify-center items-center'>
 						{children}
 					</div>

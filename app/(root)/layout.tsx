@@ -4,7 +4,8 @@ import type { Metadata } from 'next';
 import { ClerkProvider } from '@clerk/nextjs';
 
 import { Tenor_Sans } from 'next/font/google';
-import Navbar from '@/components/Navbar';
+import Navbar from '@/components/navigation/Navbar';
+import HeaderBar from '@/components/navigation/HeaderBar';
 
 const tenorSans = Tenor_Sans({
 	subsets: ['latin'],
@@ -25,9 +26,7 @@ export default function ShopLayout({
 		<ClerkProvider>
 			<html lang='fr'>
 				<body className={`${tenorSans.className} max-w-10xl mx-auto`}>
-					<header className='sticky top-0 w-full z-20 bg-gray-800 text-white px-6 py-3 drop-shadow-md main-container'>
-						<Navbar />
-					</header>
+					<HeaderBar />
 					<main className='main-container'>{children}</main>
 				</body>
 			</html>

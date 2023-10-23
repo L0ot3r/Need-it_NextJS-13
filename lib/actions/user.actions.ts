@@ -1,9 +1,9 @@
 'use server';
 
-import { revalidatePath } from 'next/cache';
-import User from '../models/User.model';
 import { connectDB } from '../mongoose';
+import User from '../models/User.model';
 import { ProductTypes } from '@/types';
+import { revalidatePath } from 'next/cache';
 
 
 interface UserProps {
